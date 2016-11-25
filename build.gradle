@@ -1,0 +1,43 @@
+buildscript {
+  repositories {
+    mavenCentral();
+  }  
+  dependencies {
+    classpath 'io.baratine:baratine:1.0.1'
+  }
+}
+
+plugins {
+  id "org.xtext.xtend" version "1.0.6"
+}
+
+apply plugin: "baratine"
+mainClassName = "wachtmeister.logins.simple.async.SimpleLoginsRest"
+
+repositories {
+  mavenCentral()
+  jcenter()
+  maven {
+    name "github" // required for xtend-contrib
+    url "https://jitpack.io"
+  }
+}
+
+dependencies {
+  
+  compile 'com.github.oehme:xtend-contrib:1.1.0'
+  compile 'org.slf4j:slf4j-api:1.7.21'
+  compile 'org.slf4j:slf4j-simple:1.7.21'
+  
+  compile 'io.baratine:baratine:1.0.1'
+  compile 'org.mindrot:jbcrypt:0.3m'
+  compile 'io.jsonwebtoken:jjwt:0.7.0'
+  compile 'de.neuland-bfi:jade4j:1.1.4'
+  
+  compile 'com.github.donreeal:pollbus-id:baratine-1.0.0'
+  
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.hamcrest:hamcrest-library:1.3'
+
+}
+

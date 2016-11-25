@@ -1,0 +1,12 @@
+target
+build
+gradle
+.gradle
+.classpath
+.project
+.settings
+build
+bin
+src/main/xtend-gen
+src/test/xtend-gen
+
