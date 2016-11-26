@@ -1,0 +1,9 @@
+extends ./layouts/page
+
+block vars
+  - var pagetitle = 'USERINFO'
+
+block content
+  h1 Hello User! Checkout your JWT!
+  p.
+    #{jwt}

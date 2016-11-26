@@ -1,0 +1,18 @@
+extends ./layouts/page
+
+block vars
+  - var pagetitle = 'SIGNUP'
+  
+block style
+  link(rel="stylesheet", href="style/signup.css")
+  
+block content
+  .wrapper.signup
+    form.form-signup(action='/signup', method='POST')
+      h2.form-signup-heading Start using localhost today!
+      hr
+      input#csrfToken(type='hidden', name='csrfToken' value=csrfToken)
+      input.form-control(name="login", placeholder='your login')
+      input.form-control(type="email", name="email", placeholder='your email')
+      input.form-control(type="password", name="password", placeholder='password')
+      button.loginBtn.btn.btn-lg.btn-primary.btn-block(type="submit") Create Account!

@@ -1,0 +1,17 @@
+extends ./layouts/page
+
+block vars
+  - var pagetitle = 'HOME'
+
+block style
+  link(rel="stylesheet", href="style/main.css")
+
+block content
+  .main
+    .header
+      h1 wachtmeister
+      p.
+        Welcome! Please <a href="/login">login</a> or <a href="/register">register</a>.
+    .content
+      .container Breaking News
+      .container Another Story

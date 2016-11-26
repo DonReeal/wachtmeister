@@ -1,0 +1,7 @@
+- var err = flash.error
+if err
+  p.alert.alert-danger #{flash.error}
+
+- var notice = flash.notice
+if notice
+  p.alert.alert-success #{flash.notice}
