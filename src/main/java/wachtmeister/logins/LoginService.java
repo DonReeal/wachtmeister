@@ -8,14 +8,12 @@ import wachtmeister.auth.Identity;
 
 @Service
 public interface LoginService {
-	
-	// public usecases:
-	
-	public void createLogin(String login, String password, String email, Result<String> result);
 
-	public void changePassword(String login, String password, Result<Boolean> result);
+  public void createLogin(String login, String password, String email, Result<String> result);
 
-	public void isLoginAvailable(String login, Result<Boolean> result);
+  public void changePassword(String login, String password, Result<Boolean> result);
 
-	public void findOneIdentity(String login, Result<Optional<Identity>> result);
+  public void isLoginAvailable(String login, Result<Boolean> result);
+
+  public void findOneIdentity(String login, Result<Optional<Identity>> result);
 }

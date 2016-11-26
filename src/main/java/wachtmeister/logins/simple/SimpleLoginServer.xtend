@@ -20,7 +20,7 @@ class SimpleLoginServer {
   static def void main(String[] args) {
 
     Web.port(3300)
-    
+
     // unless called no resources will be found 
     // outside of "resources/public" folder
     Web.scanAutoConf
@@ -36,33 +36,32 @@ class SimpleLoginServer {
     // pod logindata
     Web.include(SingleAssetLoginService)
 
-    
     // api
-    
     Web.include(LoginServiceREST)
-    
+
     // pod web
     Web.include(JwtIssuingImpl)
     Web.include(Home)
     Web.include(Signup)
     Web.include(Login)
     Web.include(Userinfo)
-    
+
     println('''
-     .....    s-t-a-r-t-i-n-g       .....
-     
-      ____ ____ ____ ____ ____ ____ ____ 
-     ||w |||a |||c |||h |||t |||: |||: ||
-     ||__|||__|||__|||__|||__|||__|||__||
-     |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-      ____ ____ ____ ____ ____ ____ ____ 
-     ||m |||e |||i |||s |||t |||e |||r ||
-     ||__|||__|||__|||__|||__|||__|||__||
-     |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-     
-     ''')
+      .....    s-t-a-r-t-i-n-g       .....
+      
+       ____ ____ ____ ____ ____ ____ ____ 
+      ||w |||a |||c |||h |||t |||: |||: ||
+      ||__|||__|||__|||__|||__|||__|||__||
+      |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+       ____ ____ ____ ____ ____ ____ ____ 
+      ||m |||e |||i |||s |||t |||e |||r ||
+      ||__|||__|||__|||__|||__|||__|||__||
+      |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+      
+    ''')
 
     Web.start(args)
+    
   }
 
 }

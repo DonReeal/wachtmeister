@@ -5,9 +5,9 @@ import io.baratine.service.Service;
 
 @Service
 public interface EventIds {
-	
-	public static final String CONF_KEY_DATACENTER_ID = "datacenter.id";
-	
-	void next(Result<Long> res);
+
+  public static final String CONF_KEY_DATACENTER_ID = "datacenter.id";
+
+  void next(Result<Long> res);
 
 }

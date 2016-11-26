@@ -6,10 +6,10 @@ import wachtmeister.Event
 
 @Data @Buildable
 class LoginCreated implements Event {
-	
-	long id
-	String login
-	String digest
-	String email
+
+  long id
+  String login
+  String digest
+  String email
 
 }

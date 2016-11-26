@@ -16,12 +16,11 @@ class ServiceInvocations {
       result,
       [ v |return v ],
       [ err, res |
-        log.error("Unknown error processing AuthImpl#verifiyIdentity! Message was: {}", err.message)
+        log.error("Exception delegation suppressed - returning default value. Exception message was: {}", err.message)
         err.printStackTrace
         res.ok(valueOnError)
       ]
     );
   }
-  
   
 }

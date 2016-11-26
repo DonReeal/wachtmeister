@@ -9,23 +9,9 @@ import java.net.MalformedURLException
 
 /**
  * https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#General_Recommendations_For_Automated_CSRF_Defense
- * 
- * Quote: 
- * 
+ * <br>
+ * Check standard headers to verify the request is same origin
  */
- 
-  // Origin Header: https://tools.ietf.org/id/draft-abarth-origin-03.html
-  // "user agent (browser) adds this header to a request to describe the
-  // reason it initiated a request
-  // content: absolute URI
-  // Referer Header: the Ressource (website) that initiated to http-Request
-  // example: 
-  // 1. do a google search
-  // 2. click on a generated link from the displayed the search results (cool.io)
-  // 3. user agent will send a referer header: "www.google.com"
-  // the headers cannot be modfied by javascript in a browser (unless compromised)
-  
-// checkStandardHeaders to verify the request is same origin
 @Slf4j
 class VerifyRequestOrigin implements ServiceWeb {
 

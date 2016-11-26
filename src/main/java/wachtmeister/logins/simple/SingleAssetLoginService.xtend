@@ -108,9 +108,9 @@ class SingleAssetLoginService extends Logins implements LoginService {
       throw new IllegalArgumentException('''Unknown login:«login»''')
     else
       _pwHashing.hash(password, result.then [ pwHash, r |
-        _eventIds.next(result.then [ id |
+        _eventIds.next(result.then [ eventId |
           apply(PasswordChanged.builder
-            .eventId(id)
+            .eventId(eventId)
             .login(login)
             .digest(pwHash)
             .build

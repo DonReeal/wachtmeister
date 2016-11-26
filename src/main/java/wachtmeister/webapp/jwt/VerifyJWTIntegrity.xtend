@@ -19,17 +19,19 @@ class VerifyJWTIntegrity implements ServiceWeb {
     if(Strings.isEmpty(cookieValue)) {  
       log.info("No WACHTMEISTER-TOKEN cookie found.")
       unauthorized(req)
+      return;
     }
     
-    else {  
-      req.service(JwtIssuing).verifiedGet(cookieValue, [ clearToken, err |
-        if(err !== null) {
-          log.error("Error verifying jwt. Msg was: {}", err.message)
-          unauthorized(req)
-        } else
-          req.ok()
-      ])
-    }
+    req.service(JwtIssuing).verifiedGet(cookieValue, [ clearToken, err |
+      
+      if(err !== null) {        
+        log.error("Error verifying jwt. Msg was: {}", err.message)
+        unauthorized(req)        
+      } else {
+        req.ok()
+      }
+    ])
+    
   }
 
   def private void unauthorized(RequestWeb req) {

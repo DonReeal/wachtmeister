@@ -11,52 +11,52 @@ import wachtmeister.webapp.Flash
  * that appends Flash and CSRFToken automatically when present in given req
  */
 class WachtmeisterViewBuilder {
-  
+
   val ViewBuilder vb
   val RequestWeb req
-  
+
   new(String viewName, RequestWeb req) {
     this.vb = View.newView(viewName)
     this.req = req
   }
-  
+
   def set(String key, String value) {
     vb.add(key, value)
     return this
   }
-  
-  def<X> set(X value) {
+
+  def <X> set(X value) {
     vb.add(value)
     return this
   }
-  
+
   def <X> get(Class<X> type) {
     return vb.get(type)
-  }  
-  
+  }
+
   def build() {
     injectWachtmeisterFormValues()
     return this.vb as View
   }
-  
+
   def injectWachtmeisterFormValues() {
-    
+
     // Baratine BUG Workaround
     req.attribute(new Nothing);
-    
-    val csrf = req.attribute(CSRFToken)    
-    if(csrf != null) {
+
+    val csrf = req.attribute(CSRFToken)
+    if (csrf != null) {
       vb.add(CSRFToken.FORM_NAME, csrf.csrfToken)
     }
-    
+
     val flash = req.attribute(Flash)
-    if(flash !=  null) {
+    if (flash != null) {
       vb.add("flash.error", flash.error);
       vb.add("flash.notice", flash.notice);
     }
-    
+
   }
-  
+
   private static final class Nothing {}
-  
+
 }

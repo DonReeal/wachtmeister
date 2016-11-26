@@ -12,22 +12,25 @@ import wachtmeister.webapp.view.WachtmeisterViewBuilder;
 @Service("/userinfo")
 public class Userinfo {
 
-	@Get("/userinfo")
-	@FilterBefore(VerifyJWTIntegrity.class)
-	public void getUserInfo(RequestWeb req) {
+  @Get("/userinfo")
+  @FilterBefore(VerifyJWTIntegrity.class)
+  public void getUserInfo(RequestWeb req) {
 
-		// TODO: open issue on baratines github
-		req.attribute(new Object()); // unless called RequestWrapper.delegate() is null here
-		String c = req.cookie("WACHTMEISTER-TOKEN");
-		
-		req.service(JwtIssuing.class).verifiedGet(c, (clearToken, err) -> {
-			if (err != null) WebErrors.toErr(err, req);
-			else req.ok(
-				new WachtmeisterViewBuilder("userinfo.jade", req)
-					.set("jwt", clearToken)
-					.build()
-			);
-		});
-	}
+    // TODO: open issue on baratines github
+    req.attribute(new Object()); // unless called RequestWrapper.delegate() is
+                                 // null here
+    String c = req.cookie("WACHTMEISTER-TOKEN");
+
+    req.service(JwtIssuing.class).verifiedGet(c, (clearToken, err) -> {
+      
+      if (err != null) {
+        WebErrors.toErr(err, req);
+        return;
+      }
+      
+      req.ok(new WachtmeisterViewBuilder("userinfo.jade", req).set("jwt", clearToken).build());
+   
+    });
+  }
 
 }

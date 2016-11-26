@@ -8,8 +8,8 @@ import io.baratine.service.Workers;
 @Workers(10)
 public interface PWHashingService {
 
-	public void hash(String password, Result<String> result);
-	
-	public void check(String plaintext, String hashed, Result<Boolean> result);	
-	
+  public void hash(String password, Result<String> result);
+
+  public void check(String plaintext, String hashed, Result<Boolean> result);
+
 }
