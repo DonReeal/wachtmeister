@@ -3,15 +3,15 @@ package wachtmeister.logins.simple
 import de.oehme.xtend.contrib.logging.slf4j.Slf4j
 import io.baratine.service.Service
 import io.baratine.web.Web
+import wachtmeister.api.LoginServiceREST
 import wachtmeister.auth.AuthImpl
+import wachtmeister.jwt.JwtIssuingImpl
 import wachtmeister.pwhash.PWHashingBCrypt
 import wachtmeister.timeline.EventIdsGeneratorService
 import wachtmeister.webapp.routes.Home
 import wachtmeister.webapp.routes.Login
 import wachtmeister.webapp.routes.Signup
 import wachtmeister.webapp.routes.Userinfo
-import wachtmeister.api.LoginServiceREST
-import wachtmeister.jwt.JwtIssuingImpl
 
 @Service
 @Slf4j
@@ -61,7 +61,7 @@ class SimpleLoginServer {
     ''')
 
     Web.start(args)
-    
+
   }
 
 }

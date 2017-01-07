@@ -21,7 +21,7 @@ class VerifyRequestOrigin implements ServiceWeb {
 
   override service(RequestWeb request) throws Exception {
     
-    if(request.method == "GET") { 
+    if(request.method == "GET") {
       request.ok
     } else {
       verifyOriginIsFromOurDomain(request)
@@ -42,14 +42,14 @@ class VerifyRequestOrigin implements ServiceWeb {
     try {
       
       var originUrl = new URL(originHeader)
-      val reqOriginHostAndPort = '''«originUrl.host»:«originUrl.port»'''
+      val reqOriginHostAndPort = originUrl.host + ":" + originUrl.port
       
-      val host = req.header(HEADERNAME_HOST) 
+      val host = req.header(HEADERNAME_HOST)
         // assume a reverse proxy forwards host in x-forwarded-host header
         ?: req.header(HEADERNAME_X_FORWARDED_HOST)
       
       if(!Strings.equalValue(reqOriginHostAndPort, host)) {
-        error("CSRF!", req)
+        error("CSRF!", req) 
         return
       }
       

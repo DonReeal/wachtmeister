@@ -28,15 +28,15 @@ import wachtmeister.logins.LoginDt
 @Slf4j
 class SingleAssetLoginService extends Logins implements LoginService {
 
-  @Inject new(PWHashingService pwHashing, EventIds eventIds) {
+  transient PWHashingService _pwHashing  
+  transient EventIds _eventIds  
+  transient val _reservedLogins = new HashSet<String>
+
+  @Inject
+  new(PWHashingService pwHashing, EventIds eventIds) {
     _pwHashing = pwHashing
     _eventIds = eventIds
   }
-
-  transient PWHashingService _pwHashing  
-  transient EventIds _eventIds
-  
-  transient val _reservedLogins = new HashSet<String>
 
   private def isLoginTaken(String login) {
     return _reservedLogins.contains(login) 

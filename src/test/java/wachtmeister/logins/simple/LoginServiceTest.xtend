@@ -25,7 +25,7 @@ class LoginServiceTest {
   @Inject @Service("/LoginService")
   var LoginServiceSync loginService
   
-  @Test @Ignore("currently fails cause loginService is shared by other test in this class (baratine bug?)")
+  @Test @Ignore("currently fails when run after testcase below cause loginService is shared by other test in this class (baratine bug?)")
   def void createdLoginsAreNotAvailable() {
     
     loginService.createLogin(
@@ -34,8 +34,10 @@ class LoginServiceTest {
       "alice:email"
     )
     
-    assertThat(loginService.isLoginAvailable("alice:login"), is(false))
-    
+    assertThat(
+      loginService.isLoginAvailable("alice:login"), 
+      is(false)
+    )
   }
   
   @Test
@@ -43,7 +45,12 @@ class LoginServiceTest {
     
     val username = "changer:login";
     
-    loginService.createLogin(username, "initial", "irrelevant")
+    loginService.createLogin(
+      username, 
+      "initial", 
+      "irrelevant"
+    )
+    
     val intitial = loginService.findOneIdentity(username)
     assertThat(intitial.isPresent, is(true))
     assertThat(intitial.get.digest, is("initial"))
@@ -56,15 +63,22 @@ class LoginServiceTest {
   }
   
   // MOCK
+  
+  
   static final class PlaintextPWVerifier 
     implements PWHashingService {
     
     override check(String plaintext, String hashed, Result<Boolean> result) {
-      log.info("{} checking ...", this.hashCode)
+      log.info("{}@{} checking ...", 
+        this.class.simpleName,
+        this.hashCode
+      )
       result.ok(plaintext == hashed)
     }
     override hash(String password, Result<String> result) {
-      log.info("{} hashing...", this.hashCode)
+      log.info("{}@{} hashing...", 
+        this.class.simpleName,
+        this.hashCode)
       result.ok(password)
     }
     
@@ -73,11 +87,15 @@ class LoginServiceTest {
   static final class EventIdsIncrementingMock 
     implements EventIds {
     
-    var i = 0L
+    var i = 0L    
     
     override next(Result<Long> res) {
       i++;
-      log.info("{} returning {}", this.hashCode, i)
+      log.info("{}@{} returning {}", 
+        this.class.simpleName,
+        this.hashCode, 
+        i
+      )
       res.ok(i)
     }
         
