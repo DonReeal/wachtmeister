@@ -63,7 +63,7 @@ public class Logins implements LoginsReducerSync {
     val username = pwChanged.login
     
     requireThat(username, [isLoginManaged(it)],'''
-      Trying to changed password for unmanaged login:«username»
+      Trying to changed password for unmanaged login:Â«usernameÂ»
     ''')
     
     val login = getByLogin(username)

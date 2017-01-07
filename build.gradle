@@ -1,6 +1,11 @@
 plugins {
+  id "java"
   id "application"
-  id "org.xtext.xtend" version "1.0.12"
+  id "org.xtext.xtend" version "1.0.15"
+}
+
+tasks.withType(JavaCompile) {
+  options.encoding = "UTF-8"
 }
 
 mainClassName = "wachtmeister.logins.simple.SimpleLoginServer"
@@ -23,7 +28,7 @@ configurations {
 
 dependencies {
   
-  compile 'com.github.oehme:xtend-contrib:1.1.0'
+  compile 'com.github.oehme:xtend-contrib:1.1.0' // transitively includes 'org.eclipse.xtend:org.eclipse.xtend.lib:x.x.x'
   
   compile 'de.neuland-bfi:jade4j:1.1.4'
   compile 'com.github.donreeal:pollbus-id:baratine-1.0.0'
@@ -41,6 +46,6 @@ dependencies {
 jar {
   dependsOn configurations.compile
   manifest {
-    attributes 'Main-Class': mainClassName
+    attributes 'Main-Class': mainClassName // kind of messy - should be done by application plugin automatically
   }
 }

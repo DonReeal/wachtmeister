@@ -42,7 +42,7 @@ class VerifyRequestOrigin implements ServiceWeb {
     try {
       
       var originUrl = new URL(originHeader)
-      val reqOriginHostAndPort = originUrl.host + ":" + originUrl.port
+      val reqOriginHostAndPort = '''«originUrl.host»:«originUrl.port»'''
       
       val host = req.header(HEADERNAME_HOST)
         // assume a reverse proxy forwards host in x-forwarded-host header
