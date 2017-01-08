@@ -59,9 +59,19 @@ class SimpleLoginServer {
       |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
       
     ''')
+    
+    
+//    val level = Level.FINEST;
+//    Logger.getLogger("com.caucho").setLevel(level);
+//    Logger.getLogger("examples").setLevel(level);
+//    Logger.getLogger("core").setLevel(level);
 
-    Web.start(args)
-
+    try {
+      Web.start(args);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
   }
 
 }

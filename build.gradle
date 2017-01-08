@@ -33,5 +33,13 @@ dependencies {
 mainClassName = "wachtmeister.logins.simple.SimpleLoginServer"
 
 run {
-  args "--conf", "src/main/resources/wachtmeister-conf.default.yml"
+  args "--conf", "src/main/resources/wachtmeister-conf.dev.yml"
+}
+
+
+def wachtmeisterDevHome = "./.wachtmeister-dev-home"
+
+task cleanDevData {
+  description "deletes all baratine data from your local dev environment"
+  delete "${wachtmeisterDevHome}"
 }

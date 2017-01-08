@@ -4,6 +4,7 @@ build
 .classpath
 .project
 .settings
+.wachtmeister*
 build
 bin
 src/main/xtend-gen
