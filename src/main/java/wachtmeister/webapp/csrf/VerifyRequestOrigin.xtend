@@ -3,9 +3,9 @@ package wachtmeister.webapp.csrf
 import de.oehme.xtend.contrib.logging.slf4j.Slf4j
 import io.baratine.web.RequestWeb
 import io.baratine.web.ServiceWeb
+import java.net.MalformedURLException
 import java.net.URL
 import wachtmeister.Strings
-import java.net.MalformedURLException
 
 /**
  * https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#General_Recommendations_For_Automated_CSRF_Defense

@@ -1,10 +1,10 @@
 package wachtmeister.webapp.view
 
-import io.baratine.web.View.ViewBuilder
-import io.baratine.web.View
 import io.baratine.web.RequestWeb
-import wachtmeister.webapp.csrf.CSRFToken
+import io.baratine.web.View
+import io.baratine.web.View.ViewBuilder
 import wachtmeister.webapp.Flash
+import wachtmeister.webapp.csrf.CSRFToken
 
 /**
  * Decorator for baratines View/ViewBuilder API

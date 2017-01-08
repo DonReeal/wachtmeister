@@ -1,8 +1,8 @@
 package wachtmeister.timeline
 
-import pollbus.idgen.barflake.CurrentTimeMillisProvider
 import java.time.Clock
 import javax.inject.Inject
+import pollbus.idgen.barflake.CurrentTimeMillisProvider
 
 class MillisProvider implements CurrentTimeMillisProvider {
 

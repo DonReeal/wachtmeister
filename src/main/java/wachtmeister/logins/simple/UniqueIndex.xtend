@@ -1,10 +1,10 @@
 package wachtmeister.logins.simple
 
+import de.oehme.xtend.contrib.logging.slf4j.Slf4j
+import java.util.Collections
 import java.util.HashMap
 import java.util.Map
-import de.oehme.xtend.contrib.logging.slf4j.Slf4j
 import java.util.Set
-import java.util.Collections
 
 @Slf4j
 class UniqueIndex<KEY, VALUE> {

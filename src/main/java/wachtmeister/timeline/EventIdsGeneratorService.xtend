@@ -1,11 +1,11 @@
 package wachtmeister.timeline
 
 import de.oehme.xtend.contrib.logging.slf4j.Slf4j
-import io.baratine.service.Result
-import pollbus.idgen.barflake.BarflakeGenerator
-import javax.inject.Inject
 import io.baratine.config.Config
+import io.baratine.service.Result
+import javax.inject.Inject
 import org.eclipse.xtend.lib.annotations.ToString
+import pollbus.idgen.barflake.BarflakeGenerator
 
 @Slf4j @ToString
 class EventIdsGeneratorService implements EventIds {

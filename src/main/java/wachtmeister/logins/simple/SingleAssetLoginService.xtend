@@ -12,13 +12,13 @@ import org.eclipse.xtend.lib.annotations.Data
 import wachtmeister.auth.Identity
 import wachtmeister.logins.LoginAlreadyTakenException
 import wachtmeister.logins.LoginCreated
+import wachtmeister.logins.LoginDt
 import wachtmeister.logins.LoginService
 import wachtmeister.logins.PasswordChanged
 import wachtmeister.pwhash.PWHashingService
 import wachtmeister.timeline.EventIds
 
 import static wachtmeister.Preconditions.*
-import wachtmeister.logins.LoginDt
 
 /**
  * CommandHandler for LoginsStore

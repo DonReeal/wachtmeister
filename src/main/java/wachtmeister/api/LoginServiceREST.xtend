@@ -2,16 +2,16 @@ package wachtmeister.api
 
 import de.oehme.xtend.contrib.logging.slf4j.Slf4j
 import io.baratine.service.Service
+import io.baratine.web.Body
+import io.baratine.web.FilterBefore
+import io.baratine.web.Get
 import io.baratine.web.Path
 import io.baratine.web.Post
+import io.baratine.web.Query
 import io.baratine.web.RequestWeb
 import wachtmeister.auth.Auth
-import wachtmeister.webapp.WebErrors
-import io.baratine.web.Body
-import io.baratine.web.Query
 import wachtmeister.logins.LoginService
-import io.baratine.web.Get
-import io.baratine.web.FilterBefore
+import wachtmeister.webapp.WebErrors
 import wachtmeister.webapp.csrf.VerifyRequestOrigin
 
 @Slf4j
