@@ -60,17 +60,17 @@ public class Logins implements LoginsReducerSync {
 
   override apply(PasswordChanged pwChanged) {
       
-    val username = pwChanged.login
+    val login = pwChanged.login
     
-    requireThat(username, [isLoginManaged(it)],'''
-      Trying to changed password for unmanaged login:«username»
+    requireThat(login, [isLoginManaged(it)],'''
+      Trying to change password for login not managed by this service:«login»
     ''')
     
-    val login = getByLogin(username)
-    login.digest = pwChanged.digest
-    login.passwordChangeDate = BarflakeDecoder.decodeTimestamp(pwChanged.eventId, 0L)
+    val loginDt = getByLogin(login)
+    loginDt.digest = pwChanged.digest
+    loginDt.passwordChangeDate = BarflakeDecoder.decodeTimestamp(pwChanged.eventId, 0L)
     
-    return login
+    return loginDt
     
   }
   

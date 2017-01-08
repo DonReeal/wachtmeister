@@ -44,39 +44,35 @@ public class Signup {
     String pw = form.first("password");
 
     loginService.createLogin(login, pw, email, (identityCreated, err) -> {
+      
       if (err != null) {
         if (err instanceof LoginAlreadyTakenException) {
-          req.attribute(Flash.error("Login already taken!"));
+          req.attribute(Flash.error("Login already taken!"));  
           getSignupPage(req);
         } else {
           WebErrors.toErr(err, req);
         }
-      } else {
-        System.out.println("welcome user you created your identity? " + identityCreated);
+      } else {        
         onIdentityCreated(login, req);
       }
+      
     });
   }
 
   private void onIdentityCreated(String username, RequestWeb req) {
 
     req.service(JwtIssuing.class).createJwt(username, (jwt, err) -> {
+      
       if (err != null) {
         req.fail(new ServerException("Sorry something went wrong :(", err));
 
       } else {
-
-        // clear all old sessions ...
-        // req.cookieMap().replaceAll((cookieName, oldValue) ->
-        // cookieName.equals("WACHTMEISTER-TOKEN")
-        // ? ""
-        // : oldValue);
-
         req.cookie("WACHTMEISTER-TOKEN", jwt).httpOnly(true);
         req.redirect("/userinfo");
       }
+      
     });
-
+    
   }
 
 }

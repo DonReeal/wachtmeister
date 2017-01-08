@@ -17,7 +17,7 @@ class JwtIssuingImpl implements JwtIssuing {
   @Inject new(Config conf) {
     
     val algorithm       = conf.get("jwt.token.signature.algorithm", SignatureAlgorithm, SignatureAlgorithm.HS512)
-    val base64StringKey = conf.get("jwt.token.signature.keybase64", "EXAMPLE")
+    val base64StringKey = conf.get("jwt.token.signature.keybase64", "HELLO")
     val issuer          = conf.get("jwt.token.claims.issuer", "wachtmeister")
     val tokenLifetime   = conf.get("jwt.token.lifetimeseconds", Integer, 24*60*60*1000)
     

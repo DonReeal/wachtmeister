@@ -34,7 +34,7 @@ class AuthImpl implements Auth {
     );
   }
 
-  def verifyInternal(
+  private def verifyInternal(
     String login, 
     String password, 
     Result<Boolean> result
@@ -50,7 +50,7 @@ class AuthImpl implements Auth {
     )
   }
   
-  def checkPassword(
+  private def checkPassword(
     String password, 
     Identity persistedIdentity,
     Result<Boolean> res
@@ -70,7 +70,7 @@ class AuthImpl implements Auth {
     )
   }
   
-  def raiseClientAuthenticated(long eventId, String login) {
+  private def raiseClientAuthenticated(long eventId, String login) {
     val clientAuthenticated = ClientAuthenticated.builder
       .id(eventId)
       .login(login)
