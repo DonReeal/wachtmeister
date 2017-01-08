@@ -1,4 +1,4 @@
-datacenter.id:2
+datacenter.id:1
 jwt.token.signature.algorithm:HS512
 jwt.token.signature.keybase64:HELLO
 jwt.token.lifetimeseconds:3600000

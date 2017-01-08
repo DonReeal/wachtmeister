@@ -31,3 +31,7 @@ dependencies {
 }
 
 mainClassName = "wachtmeister.logins.simple.SimpleLoginServer"
+
+run {
+  args "--conf", "src/main/resources/wachtmeister-conf.default.yml"
+}
