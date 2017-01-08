@@ -103,7 +103,7 @@ class LoginServiceREST {
     override toString() {
       return '''
         RegistrationData[
-          username = «username»
+          username = Â«usernameÂ»
           password = ...
           email = ...
        '''

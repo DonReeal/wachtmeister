@@ -8,7 +8,7 @@ class Preconditions {
 
   def static <T> requireAbsence(T value, Collection<T> c) {
     if(c.contains(value))
-      throw new ValueTakenException('''Value:«value» already taken!''')
+      throw new ValueTakenException('''Value:Â«valueÂ» already taken!''')
     return value
   }
 

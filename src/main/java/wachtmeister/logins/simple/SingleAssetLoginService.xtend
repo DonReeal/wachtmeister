@@ -105,7 +105,7 @@ class SingleAssetLoginService extends Logins implements LoginService {
     requireNonEmpty(password)  
     
     if(!isLoginManaged(login))
-      throw new IllegalArgumentException('''Unknown login:«login»''')
+      throw new IllegalArgumentException('''Unknown login:Â«loginÂ»''')
     else
       _pwHashing.hash(password, result.then [ pwHash, r |
         _eventIds.next(result.then [ eventId |
