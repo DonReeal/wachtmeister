@@ -4,14 +4,6 @@ plugins {
   id "org.xtext.xtend" version "1.0.15"
 }
 
-tasks.withType(JavaCompile) {
-  options.encoding = "UTF-8"
-}
-
-mainClassName = "wachtmeister.logins.simple.SimpleLoginServer"
-
-
-
 repositories {
   mavenCentral()
   jcenter()
@@ -19,11 +11,6 @@ repositories {
     name "github" // required for xtend-contrib
     url "https://jitpack.io"
   }
-}
-
-configurations {
-  provided
-  compile.extendsFrom provided
 }
 
 dependencies {
@@ -43,9 +30,4 @@ dependencies {
 
 }
 
-jar {
-  dependsOn configurations.compile
-  manifest {
-    attributes 'Main-Class': mainClassName // kind of messy - should be done by application plugin automatically
-  }
-}
+mainClassName = "wachtmeister.logins.simple.SimpleLoginServer"
