@@ -142,8 +142,8 @@ class SingleAssetLoginService extends Logins implements LoginService {
     result.ok(Optional.ofNullable(identity))
   }
   
-  /**
-   * Implementing Auth-API contract
+  /*
+   * Inline implementing Auth-API contract here
    */
   @Data 
   private static final class IdentityDt implements Identity {
@@ -154,6 +154,7 @@ class SingleAssetLoginService extends Logins implements LoginService {
     static def ofLoginDt(LoginDt loginDt) {
       return new IdentityDt(loginDt.username, loginDt.digest)
     }
+    
   }
   
 }
