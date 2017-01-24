@@ -39,7 +39,9 @@ run {
 
 def wachtmeisterDevHome = "./.wachtmeister-dev-home"
 
-task cleanDevData {
-  description "deletes all baratine data from your local dev environment"
-  delete "${wachtmeisterDevHome}"
+task cleanDevServer {
+  doLast {
+    delete "${wachtmeisterDevHome}"
+  }
 }
+
