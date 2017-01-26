@@ -2,13 +2,12 @@ package wachtmeister
 
 import java.util.Collection
 import java.util.function.Function
-import wachtmeister.logins.simple.ValueTakenException
 
 class Preconditions {
 
   def static <T> requireAbsence(T value, Collection<T> c) {
     if(c.contains(value))
-      throw new ValueTakenException('''Value:«value» already taken!''')
+      throw new IllegalArgumentException('''Value:«value» already taken!''')
     return value
   }
 
